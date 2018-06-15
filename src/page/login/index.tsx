@@ -3,6 +3,8 @@ import { Form, Icon, Input, Button } from 'antd';
 import {FormComponentProps} from 'antd/lib/form/Form';
 import { Row, Col } from 'antd';
 import './index.scss'
+import Util from '../../util'
+const util = new Util();
 const FormItem = Form.Item;
 interface IAppProps {
     form?: any,
@@ -14,6 +16,8 @@ class NormalLoginForm extends React.Component <IAppProps & FormComponentProps>{
         this.props.form.validateFields((err:any, values:any) => {
             if (values.userName === 'chen' && values.password === 'admin') {
                 this.props.history.push('/home'); 
+                util.setStorage('user', values);
+                // alert(util.getStorage('user').password);
             } else {
                 alert('登陆失败');
             }
