@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 
 import Layout from '../component/Layout';
 import Login from '../page/login';
-import Register from '../page/login';
 import hello from '../page/hello';
 
 import table from '../page/table/table1';
@@ -52,16 +51,35 @@ export const childRoutes = [
         'path':'/table2'
     },
     {
+        'component': Login,
+        'path':'/login'
+    },
+    {
         'component': table1,
         'path':'/table/table1'
     }
 ];
-const routes = (
-  <Switch>
-    <Route path="/login" component={Login}/>
-    <Route path="/register" component={Register}/>
-    <Route path="/" component={Layout}/>
-  </Switch>
-);
+const getRouters = (routers:any):any => {
+    return routers.map((item:any)=> {
+        if(item.path === 'login'){
+            return (
+                <Route key={item.path} path="/login" component={ Layout }/>
+            )
+        }else{
+            return (
+                <Route key={item.path} path={item.path} component={ Layout }/>
+            )
+        }
+    })
+}
 
+const routes = (
+    <Switch>
+        
+        {
+            getRouters(childRoutes)
+        }
+    </Switch>
+);
+console.log(routes)
 export default routes

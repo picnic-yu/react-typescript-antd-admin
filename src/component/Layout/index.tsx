@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const {  Content, Footer, Sider } = Layout;
 import { Link, Switch, Route } from 'react-router-dom';
-import {routerConfig, childRoutes} from '../../routers'
+import {routerConfig, childRoutes} from '../../routers';
 import CommonHeader from '../Header'
 const SubMenu = Menu.SubMenu;
 import './index.scss'
