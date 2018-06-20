@@ -1,8 +1,10 @@
 
 import * as React from 'react';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-const { Header, Content, Footer, Sider } = Layout;
-import { Link } from 'react-router-dom'
+const {  Content, Footer, Sider } = Layout;
+import { Link, Switch, Route } from 'react-router-dom';
+import {routerConfig, childRoutes} from '../../routers'
+import CommonHeader from '../Header'
 const SubMenu = Menu.SubMenu;
 import './index.scss'
 
@@ -14,6 +16,42 @@ class Main extends React.Component {
         this.setState({ collapsed });
     }
     public render() {
+        const menuProcess = (nodes:any) :any=> {
+           
+            return nodes.map((item:any, i:any) => {
+                if (item.child.length > 0) {
+                    const subMenuItem = menuProcess(item.child)
+                    return (
+                    <SubMenu
+                        key={'sub'+item.key}
+                        title={<span><Icon type={item.icon} /><span className="nav-text">{item.name}</span></span>}
+                    >
+                        {
+                            subMenuItem
+                        }
+                    </SubMenu>
+                    )
+                } else {
+                    return (
+                    <Menu.Item key={'menu'+item.key}>
+                        {
+                        item.url ? <Link to={item.url}>{item.icon && <Icon type={item.icon} />}{item.name}</Link> : <span>{item.icon && <Icon type={item.icon} />}{item.name}</span>
+                        }
+                    </Menu.Item>
+                    )
+                }
+            });
+        }
+      
+        const menu = menuProcess(routerConfig);
+        const matainContent = (arr:any):any => {
+            return arr.map((item:any) => {
+                return (
+                    <Route key={item.path} path={item.path} component={item.component}/>
+                )
+            });
+        }
+        const contents = matainContent(childRoutes);
         return (
             <Layout style={{ minHeight: '100vh' }} className='layout'>
                 <Sider
@@ -22,39 +60,13 @@ class Main extends React.Component {
                     onCollapse={this.onCollapse}>
                     <div className="logo"/>>
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                        <Menu.Item key="1">
-                            <Icon type="pie-chart" />
-                            <span>Option 1</span>
-                        </Menu.Item>
-                        <Menu.Item key="2">
-                            <Link to="/home">
-                                <Icon type="desktop" />
-                                <span>Option 2</span>
-                            </Link>
-                            
-                        </Menu.Item>
-                        <SubMenu
-                            key="sub1"
-                            title={<span><Icon type="user" /><span>User</span></span>}
-                        >
-                            <Menu.Item key="3">Tom</Menu.Item>
-                            <Menu.Item key="4">Bill</Menu.Item>
-                            <Menu.Item key="5">Alex</Menu.Item>
-                        </SubMenu>
-                        <SubMenu
-                            key="sub2"
-                            title={<span><Icon type="team" /><span>Team</span></span>}>
-                            <Menu.Item key="6">Team 1</Menu.Item>
-                            <Menu.Item key="8">Team 2</Menu.Item>
-                        </SubMenu>
-                        <Menu.Item key="9">
-                            <Icon type="file" />
-                            <span>File</span>
-                        </Menu.Item>
+                        {
+                            menu
+                        }
                     </Menu>
                 </Sider>
                 <Layout>
-                    <Header style={{ background: '#fff', padding: 0 }} />
+                    <CommonHeader />
                     <Content style={{ margin: '0 16px' }}>
                         {/* 面包屑开始 */}
                         <Breadcrumb style={{ margin: '16px 0' }}>
@@ -64,7 +76,12 @@ class Main extends React.Component {
                         {/* 面包屑结束 */}
                         {/* content内容开始 */}
                         <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-                            Bill is a cat.
+                        <Switch>
+                            {
+                                contents
+                            }
+                        </Switch>
+                        
                         </div>
                         {/* content内容结束 */}
                     </Content>

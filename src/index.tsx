@@ -12,13 +12,12 @@ class App extends React.Component{
                 <Switch>
                     <Route path="/home" component={ Layout }/>
                     <Route path="/login" component={ Login }/>
-                    <Route path="/" component={ Login }/>
+                    <Route path="/" component={ Layout }/>
                 </Switch>
             </BrowserRouter>
         )
     }
 }
-
 ReactDOM.render(
     <App />,
     document.getElementById('root') as HTMLElement
