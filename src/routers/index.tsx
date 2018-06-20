@@ -75,11 +75,9 @@ const getRouters = (routers:any):any => {
 
 const routes = (
     <Switch>
-        
         {
             getRouters(childRoutes)
         }
     </Switch>
 );
-console.log(routes)
 export default routes
