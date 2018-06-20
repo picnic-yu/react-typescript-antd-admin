@@ -35,7 +35,7 @@ class Main extends React.Component {
                     return (
                     <Menu.Item key={'menu'+item.key}>
                         {
-                        item.url ? <Link to={item.url}>{item.icon && <Icon type={item.icon} />}{item.name}</Link> : <span>{item.icon && <Icon type={item.icon} />}{item.name}</span>
+                            item.url ? <Link to={item.url}>{item.icon && <Icon type={item.icon} />}{item.name}</Link> : <span>{item.icon && <Icon type={item.icon} />}{item.name}</span>
                         }
                     </Menu.Item>
                     )
