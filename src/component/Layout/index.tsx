@@ -75,8 +75,8 @@ class Main extends React.Component {
                     <Content style={{ margin: '0 16px' }}>
                         {/* 面包屑开始 */}
                         <Breadcrumb style={{ margin: '16px 0' }}>
-                            <Breadcrumb.Item>User</Breadcrumb.Item>
-                            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+                            {/* <Breadcrumb.Item>User</Breadcrumb.Item>
+                            <Breadcrumb.Item>Bill</Breadcrumb.Item> */}
                         </Breadcrumb>
                         {/* 面包屑结束 */}
                         {/* content内容开始 */}
@@ -92,7 +92,7 @@ class Main extends React.Component {
                     </Content>
                     {/* 底部开始 */}
                     <Footer style={{ textAlign: 'center' }}>
-                        Ant Design ©2016 Created by Ant UED
+                        {/* Ant Design ©2016 Created by Ant UED */}
                     </Footer>
                     {/* 底部结束 */}
                 </Layout>
