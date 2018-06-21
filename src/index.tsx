@@ -3,10 +3,10 @@ import * as ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'mobx-react';
-import rootStore from './store'
+import rootStore from 'src/store'
 // 页面
-import Login            from './page/login';
-import Layout            from './component/Layout';
+import Login            from 'src/page/login';
+import Layout            from 'src/component/Layout';
 class App extends React.Component{
     public render(){
         return (

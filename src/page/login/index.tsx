@@ -4,7 +4,7 @@ import {FormComponentProps} from 'antd/lib/form/Form';
 import { Row, Col } from 'antd';
 import {observer, inject} from 'mobx-react'
 import './index.scss'
-import Util from '../../util'
+import Util from 'src/util'
 const util = new Util();
 const FormItem = Form.Item;
 interface IAppProps {

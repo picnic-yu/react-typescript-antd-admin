@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Layout from '../component/Layout';
-import Login from '../page/login';
-import hello from '../page/hello';
+import Layout from 'src/component/Layout';
+import Login from 'src/page/login';
+import hello from 'src/page/hello';
 
-import table from '../page/table/table1';
-import table2 from '../page/table/table2';
-import table1 from '../page/table/table1';
-import PopconfirmComponent from '../page/Popconfirm'
+import table from 'src/page/table/table1';
+import table2 from 'src/page/table/table2';
+import table1 from 'src/page/table/table1';
+import PopconfirmComponent from 'src/page/Popconfirm'
 export const routerConfig = [
     {
         child: [
