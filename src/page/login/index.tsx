@@ -2,14 +2,18 @@ import * as React from 'react';
 import { Form, Icon, Input, Button } from 'antd';
 import {FormComponentProps} from 'antd/lib/form/Form';
 import { Row, Col } from 'antd';
+import {observer, inject} from 'mobx-react'
 import './index.scss'
 import Util from '../../util'
 const util = new Util();
 const FormItem = Form.Item;
 interface IAppProps {
     form?: any,
-    history?:any
+    history?:any,
+    userStore:any
 }
+@inject( 'userStore' )
+@observer
 class NormalLoginForm extends React.Component <IAppProps & FormComponentProps>{
     public handleSubmit = (e:any) => {
         e.preventDefault();
@@ -17,13 +21,18 @@ class NormalLoginForm extends React.Component <IAppProps & FormComponentProps>{
             if (values.userName === 'chen' && values.password === 'admin') {
                 this.props.history.push('/home'); 
                 util.setStorage('user', values);
-                // alert(util.getStorage('user').password);
             } else {
                 alert('登陆失败');
             }
         });
     }
     public render() {
+        
+        this.props.userStore.emptyData();
+        // 验证mobx 成功
+        // console.log(this.props.userStore)
+        // this.props.userStore.fetchData('2');
+        // console.log(this.props.userStore)
         const { getFieldDecorator } = this.props.form;
         return (
             <Row type="flex" justify="space-around" align="middle">
