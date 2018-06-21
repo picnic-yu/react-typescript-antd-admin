@@ -8,7 +8,7 @@ import hello from '../page/hello';
 import table from '../page/table/table1';
 import table2 from '../page/table/table2';
 import table1 from '../page/table/table1';
-
+import PopconfirmComponent from '../page/Popconfirm'
 export const routerConfig = [
     {
         child: [
@@ -35,12 +35,33 @@ export const routerConfig = [
         key:'hello',
         name:'hello',
         url:'/hello'
+    },
+    {
+        child: [
+            {
+                child: [
+
+                ],
+                icon:'mail',
+                key:'PopconfirmComponent',
+                name:'气泡确认框',
+                url:'/PopconfirmComponent'
+            }
+        ],
+        icon:'mail',
+        key:'/Popconfirm',
+        name:'气泡管理',
+        url:'/Popconfirm'
     }
 ]
 export const childRoutes = [
     {
       'component': hello,
       'path':'/hello'
+    },
+    {
+        'component': PopconfirmComponent,
+        'path':'/PopconfirmComponent'
     },
     {
         'component': table,
