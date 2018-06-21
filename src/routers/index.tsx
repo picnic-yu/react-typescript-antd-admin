@@ -8,7 +8,8 @@ import hello from 'src/page/hello';
 import table from 'src/page/table/table1';
 import table2 from 'src/page/table/table2';
 import table1 from 'src/page/table/table1';
-import PopconfirmComponent from 'src/page/Popconfirm'
+import PopconfirmComponent from 'src/page/Popconfirm';
+import Transfer from 'src/page/Transfer';
 export const routerConfig = [
     {
         child: [
@@ -43,6 +44,23 @@ export const routerConfig = [
 
                 ],
                 icon:'mail',
+                key:'Transfer',
+                name:'穿梭框',
+                url:'/Transfer'
+            }
+        ],
+        icon:'mail',
+        key:'/Transfer',
+        name:'穿梭框管理',
+        url:'/Transfer'
+    },
+    {
+        child: [
+            {
+                child: [
+
+                ],
+                icon:'mail',
                 key:'PopconfirmComponent',
                 name:'气泡确认框',
                 url:'/PopconfirmComponent'
@@ -58,6 +76,10 @@ export const childRoutes = [
     {
       'component': hello,
       'path':'/hello'
+    },
+    {
+        'component': Transfer,
+        'path':'/Transfer'
     },
     {
         'component': PopconfirmComponent,
