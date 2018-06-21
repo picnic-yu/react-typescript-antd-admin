@@ -9,6 +9,7 @@
 	"defaultSeverity": "error",
     "rules": {
 		"ordered-imports": false,
-		"no-console":false
+		"no-console":false,
+		"object-literal-sort-keys":false
     }
 }
