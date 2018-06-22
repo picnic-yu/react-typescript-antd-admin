@@ -72,7 +72,7 @@ class Main extends React.Component {
                         }
                     </Menu>
                 </Sider>
-                <Layout style={{ marginLeft: marginLeftNumber }}>
+                <Layout style={{ marginLeft: marginLeftNumber,height:'100vh' }}>
                     <CommonHeader  />
                     <Content style={{ margin: '70px 16px' }}>
                         {/* 面包屑开始 */}
