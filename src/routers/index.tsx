@@ -8,9 +8,10 @@ import hello from 'src/page/hello';
 import table from 'src/page/table/table1';
 import table2 from 'src/page/table/table2';
 import table1 from 'src/page/table/table1';
-import PopconfirmComponent from 'src/page/Popconfirm';
-import Transfer from 'src/page/Transfer';
-import TimelineComponent from 'src/page/Timeline';
+import PopconfirmComponent from 'src/page/Popconfirm';                          // 气泡弹出框
+import Transfer from 'src/page/Transfer';                                       // 穿梭框
+import TimelineComponent from 'src/page/Timeline';                              // 时间轴
+import CarouselComponent from 'src/page/Carousel';                              // 走马灯
 export const routerConfig = [
     {
         child: [
@@ -46,6 +47,15 @@ export const routerConfig = [
         key:'/Timeline',
         name:'时间轴管理',
         url:'/Timeline'
+    },
+    {
+        child: [
+            
+        ],
+        icon:'mail',
+        key:'/Carousel',
+        name:'走马灯',
+        url:'/Carousel'
     },
     {
         child: [
@@ -90,6 +100,10 @@ export const childRoutes = [
     {
         'component': Transfer,
         'path':'/Transfer'
+    },
+    {
+        'component': CarouselComponent,
+        'path':'/Carousel'
     },
     {
         'component': TimelineComponent,
