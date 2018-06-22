@@ -13,6 +13,7 @@ import Transfer from 'src/page/Transfer';                                       
 import TimelineComponent from 'src/page/Timeline';                              // 时间轴
 import CarouselComponent from 'src/page/Carousel';                              // 走马灯
 import ListComponent from 'src/page/List';                                      // 基础列表
+import LoadMoreList from 'src/page/List/LoadMoreList';                          // 加载更多列表
 export const routerConfig = [
     {
         child: [
@@ -85,6 +86,15 @@ export const routerConfig = [
                 key:'basicList',
                 name:'基础列表',
                 url:'/list'
+            },
+            {
+                child: [
+
+                ],
+                icon:'mail',
+                key:'LoadMoreList',
+                name:'加载更多列表',
+                url:'/LoadMoreList'
             }
         ],
         icon:'mail',
@@ -122,6 +132,10 @@ export const childRoutes = [
     {
         'component': ListComponent,
         'path':'/list'
+    },
+    {
+        'component': LoadMoreList,
+        'path':'/LoadMoreList'
     },
     {
         'component': CarouselComponent,

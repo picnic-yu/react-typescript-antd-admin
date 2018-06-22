@@ -12,6 +12,10 @@
 		"no-console":false,
 		"object-literal-sort-keys":false,
 		"jsx-no-lambda":false,
-		"jsx-no-bind":false
+		"jsx-no-bind":false,
+		"only-arrow-functions": [
+			false
+		],
+		"jsx-key":false
     }
 }
