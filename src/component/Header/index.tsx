@@ -34,7 +34,7 @@ class CommonHeader extends React.Component {
         // );
 
         return (
-            <Header style={{ background: '#fff', padding: 0 }}>
+            <Header style={{ background: '#fff', padding: 0 , position: 'fixed', zIndex: 1, width: '100%'}}>
                 <Row type="flex" justify="end" align="middle">
                     <Col span={3}>
                         <Badge className="header-icon" count={5}>

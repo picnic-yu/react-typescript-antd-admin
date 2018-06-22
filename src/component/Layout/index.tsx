@@ -57,9 +57,11 @@ class Main extends React.Component {
             });
         }
         const contents = matainContent(childRoutes);
+        const marginLeftNumber = !this.state.collapsed ? 200 : 82;
         return (
-            <Layout style={{ minHeight: '100vh' }} className='layout'>
+            <Layout className='layout'>
                 <Sider
+                    style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}
                     collapsible = {true}
                     collapsed={this.state.collapsed}
                     onCollapse={this.onCollapse}>
@@ -70,9 +72,9 @@ class Main extends React.Component {
                         }
                     </Menu>
                 </Sider>
-                <Layout>
-                    <CommonHeader />
-                    <Content style={{ margin: '0 16px' }}>
+                <Layout style={{ marginLeft: marginLeftNumber }}>
+                    <CommonHeader  />
+                    <Content style={{ margin: '70px 16px' }}>
                         {/* 面包屑开始 */}
                         <Breadcrumb style={{ margin: '16px 0' }}>
                             {/* <Breadcrumb.Item>User</Breadcrumb.Item>
