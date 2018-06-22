@@ -8,6 +8,7 @@ import hello from 'src/page/hello';
 import table from 'src/page/table/table1';
 import table2 from 'src/page/table/table2';
 import table1 from 'src/page/table/table1';
+import Home from 'src/page/home';
 import PopconfirmComponent from 'src/page/Popconfirm';                          // 气泡弹出框
 import Transfer from 'src/page/Transfer';                                       // 穿梭框
 import TimelineComponent from 'src/page/Timeline';                              // 时间轴
@@ -160,6 +161,10 @@ export const childRoutes = [
     {
         'component': Login,
         'path':'/login'
+    },
+    {
+        'component':Home,
+        'path':'/home'
     },
     {
         'component': table1,
