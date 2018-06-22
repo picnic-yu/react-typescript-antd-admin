@@ -10,6 +10,7 @@ import table2 from 'src/page/table/table2';
 import table1 from 'src/page/table/table1';
 import PopconfirmComponent from 'src/page/Popconfirm';
 import Transfer from 'src/page/Transfer';
+import TimelineComponent from 'src/page/Timeline';
 export const routerConfig = [
     {
         child: [
@@ -36,6 +37,15 @@ export const routerConfig = [
         key:'hello',
         name:'hello',
         url:'/hello'
+    },
+    {
+        child: [
+            
+        ],
+        icon:'mail',
+        key:'/Timeline',
+        name:'时间轴管理',
+        url:'/Timeline'
     },
     {
         child: [
@@ -80,6 +90,10 @@ export const childRoutes = [
     {
         'component': Transfer,
         'path':'/Transfer'
+    },
+    {
+        'component': TimelineComponent,
+        'path':'/Timeline'
     },
     {
         'component': PopconfirmComponent,
