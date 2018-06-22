@@ -2,12 +2,11 @@
 import * as React from 'react';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const {  Content, Footer, Sider } = Layout;
-import { Link, Switch, Route } from 'react-router-dom';
+import { Link, Switch, Route, Redirect } from 'react-router-dom';
 import {routerConfig, childRoutes} from '../../routers';
 import CommonHeader from '../Header'
 const SubMenu = Menu.SubMenu;
 import './index.scss'
-
 class Main extends React.Component {
     public state = {
         collapsed: false,
@@ -15,9 +14,14 @@ class Main extends React.Component {
     public onCollapse = (collapsed: boolean) => {
         this.setState({ collapsed });
     }
+    // 切换路由时触发
+    public onEnter(Component:any, props:any):any {
+        if (props.location.pathname) {
+            return <Component {...props} />;
+        }
+    }
     public render() {
         const menuProcess = (nodes:any) :any=> {
-           
             return nodes.map((item:any, i:any) => {
                 if (item.child.length > 0) {
                     const subMenuItem = menuProcess(item.child);
@@ -52,12 +56,14 @@ class Main extends React.Component {
         const matainContent = (arr:any):any => {
             return arr.map((item:any) => {
                 return (
-                    <Route key={item.path} path={item.path} component={item.component}/>
+                    <Route key={item.path} exact={true}  path={item.path} render={(props) => this.onEnter(item.component, props)} / >
                 )
             });
         }
+
         const contents = matainContent(childRoutes);
         const marginLeftNumber = !this.state.collapsed ? 200 : 82;
+
         return (
             <Layout className='layout'>
                 <Sider
@@ -87,6 +93,7 @@ class Main extends React.Component {
                             {
                                 contents
                             }
+                            <Route path="/" render={()=><Redirect to="/login"/>}/>
                         </Switch>
                         
                         </div>

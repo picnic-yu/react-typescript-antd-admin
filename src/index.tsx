@@ -14,8 +14,8 @@ class App extends React.Component{
                 <Switch>
                     <Route path="/home" component={ Layout }/>
                     <Route path="/login" component={ Login }/>
-                    <Route path="/" exact={true} component={ Layout }/>
-                    <Route path="/*"  component={ Layout }/>
+                    <Route path="/"   component={ Layout }/>
+                    {/* <Route path="/*"  component={ Layout }/> */}
                 </Switch>
             </BrowserRouter>
         )
