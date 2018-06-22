@@ -12,6 +12,7 @@ import PopconfirmComponent from 'src/page/Popconfirm';                          
 import Transfer from 'src/page/Transfer';                                       // 穿梭框
 import TimelineComponent from 'src/page/Timeline';                              // 时间轴
 import CarouselComponent from 'src/page/Carousel';                              // 走马灯
+import ListComponent from 'src/page/List';                                      // 基础列表
 export const routerConfig = [
     {
         child: [
@@ -81,6 +82,23 @@ export const routerConfig = [
 
                 ],
                 icon:'mail',
+                key:'basicList',
+                name:'基础列表',
+                url:'/list'
+            }
+        ],
+        icon:'mail',
+        key:'list',
+        name:'列表管理',
+        url:''
+    },
+    {
+        child: [
+            {
+                child: [
+
+                ],
+                icon:'mail',
                 key:'PopconfirmComponent',
                 name:'气泡确认框',
                 url:'/PopconfirmComponent'
@@ -100,6 +118,10 @@ export const childRoutes = [
     {
         'component': Transfer,
         'path':'/Transfer'
+    },
+    {
+        'component': ListComponent,
+        'path':'/list'
     },
     {
         'component': CarouselComponent,
