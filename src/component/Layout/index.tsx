@@ -24,7 +24,7 @@ class Main extends React.Component {
     public render() {
         const menuProcess = (nodes:any) :any=> {
             return nodes.map((item:any, i:any) => {
-                if (item.routes.length > 0) {
+                if (item.routes) {
                     const subMenuItem = menuProcess(item.routes);
                     return (
                     <SubMenu
@@ -87,11 +87,11 @@ class Main extends React.Component {
                                 // 处理多个框
                                 
                             }
-                            {
+                            {/* {
                                 routerConfig.map((item: object, i: number) =>
                                 <Route  key={Math.random()} {...item} />
                                 // 处理单个menu
-                            )
+                            ) */}
                             }
                             {/* <Redirect from="/*" to="/" /> */}
                         </Switch>

@@ -19,9 +19,6 @@ export const  routerConfig = [
     {
         routes: [
             {
-                routes: [
-
-                ],
                 icon:'mail',
                 key:'table1',
                 name:'table1',
@@ -36,9 +33,6 @@ export const  routerConfig = [
         path:'/table'
     },
     {
-        routes: [
-            
-        ],
         component: hello,
         icon:'mail',
         key:'hello',
@@ -46,9 +40,6 @@ export const  routerConfig = [
         path:'/hello'
     },
     {
-        routes: [
-            
-        ],
         icon:'mail',
         key:'/Timeline',
         component: TimelineComponent,
@@ -56,9 +47,6 @@ export const  routerConfig = [
         path:'/Timeline'
     },
     {
-        routes: [
-            
-        ],
         icon:'mail',
         key:'/Carousel',
         name:'走马灯',
@@ -68,9 +56,6 @@ export const  routerConfig = [
     {
         routes: [
             {
-                routes: [
-
-                ],
                 icon:'mail',
                 key:'Transfer',
                 name:'穿梭框',
@@ -87,9 +72,6 @@ export const  routerConfig = [
     {
         routes: [
             {
-                routes: [
-
-                ],
                 icon:'mail',
                 key:'basicList',
                 name:'基础列表',
@@ -98,9 +80,6 @@ export const  routerConfig = [
                 path:'/list/basiclist'
             },
             {
-                routes: [
-
-                ],
                 icon:'mail',
                 key:'LoadMoreList',
                 name:'加载更多列表',
@@ -119,9 +98,6 @@ export const  routerConfig = [
     {
         routes: [
             {
-                routes: [
-
-                ],
                 icon:'mail',
                 key:'PopconfirmComponent',
                 name:'气泡确认框',
