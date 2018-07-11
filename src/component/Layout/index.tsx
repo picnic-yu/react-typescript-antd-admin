@@ -2,8 +2,9 @@
 import * as React from 'react';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const {  Content, Footer, Sider } = Layout;
-import { Link, Switch, Route, Redirect } from 'react-router-dom';
-import {routerConfig, childRoutes} from '../../routers';
+// import { Link,Switch,Route ,Redirect  } from 'react-router-dom';
+import { Link,Switch,Route ,  } from 'react-router-dom';
+import {routerConfig, allRoutes} from '../../routers';
 import CommonHeader from '../Header'
 const SubMenu = Menu.SubMenu;
 import './index.scss'
@@ -23,8 +24,8 @@ class Main extends React.Component {
     public render() {
         const menuProcess = (nodes:any) :any=> {
             return nodes.map((item:any, i:any) => {
-                if (item.child.length > 0) {
-                    const subMenuItem = menuProcess(item.child);
+                if (item.routes.length > 0) {
+                    const subMenuItem = menuProcess(item.routes);
                     return (
                     <SubMenu
                         key={'sub'+item.key}
@@ -39,8 +40,8 @@ class Main extends React.Component {
                     return (
                         <Menu.Item key={'menu'+item.key}>
                             {
-                                item.url ? 
-                                <Link to={item.url}>
+                                item.path ? 
+                                <Link to={item.path}>
                                     <Icon type={item.icon} />
                                     <span>{item.name}</span> 
                                 </Link> : 
@@ -51,19 +52,8 @@ class Main extends React.Component {
                 }
             });
         }
-      
         const menu = menuProcess(routerConfig);
-        const matainContent = (arr:any):any => {
-            return arr.map((item:any) => {
-                return (
-                    <Route key={item.path} exact={true}  path={item.path} render={(props) => this.onEnter(item.component, props)} / >
-                )
-            });
-        }
-
-        const contents = matainContent(childRoutes);
         const marginLeftNumber = !this.state.collapsed ? 200 : 82;
-
         return (
             <Layout className='layout'>
                 <Sider
@@ -91,11 +81,20 @@ class Main extends React.Component {
                         <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
                         <Switch>
                             {
-                                contents
+                                allRoutes.map((item: object, i: number) =>
+                                    <Route  key={Math.random()} {...item} />
+                                )
+                                // 处理多个框
+                                
                             }
-                            <Route path="/" render={()=><Redirect to="/login"/>}/>
+                            {
+                                routerConfig.map((item: object, i: number) =>
+                                <Route  key={Math.random()} {...item} />
+                                // 处理单个menu
+                            )
+                            }
+                            {/* <Redirect from="/*" to="/" /> */}
                         </Switch>
-                        
                         </div>
                         {/* content内容结束 */}
                     </Content>
